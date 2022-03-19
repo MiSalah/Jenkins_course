@@ -7,5 +7,12 @@ services:
        - "8080:8080"
      networks:
        - net
+    remote_host:
+      container_name: remote_host
+      image: remote-host
+      build:
+        context: centos # folder where i wrote the Dockerfile
+      networks:
+        - net
 networks:
   net:
