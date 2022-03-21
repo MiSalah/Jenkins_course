@@ -18,6 +18,11 @@ RUN yum -y install mysql
 # Install unzip 
 RUN yum -y install unzip
 
+# switch to python3.6
+RUN sudo yum -y install centos-release-scl && \
+    sudo yum -y install rh-python36 && \
+    scl enable rh-python36 bash
+
 # aws client
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
