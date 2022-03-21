@@ -18,15 +18,10 @@ RUN yum -y install mysql
 # Install unzip 
 RUN yum -y install unzip
 
-# switch to python3.6
-RUN yum -y install centos-release-scl && \
-    yum -y install rh-python36 && \
-    scl enable rh-python36 bash
-
 # aws client
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
-    unzip awscliv2.zip && \
-    sudo ./aws/install
+RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle-1.16.312.zip" -o "awscli-bundle.zip" && \
+    unzip awscli-bundle.zip && \
+    ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
     
 RUN chown elbaidoury_remote:elbaidoury_remote -R /home/elbaidoury_remote/.ssh && \
     chmod 600 /home/elbaidoury_remote/.ssh/authorized_keys
