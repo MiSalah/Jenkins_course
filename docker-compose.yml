@@ -1,17 +1,26 @@
 version "3"
 services:
     jenkins:
-     container_name: jenkins
-     image: jenkins/jenkins:lts
-     ports:
+      container_name: jenkins
+      image: jenkins/jenkins:lts
+      ports:
        - "8080:8080"
-     networks:
+      networks:
        - net
     remote_host:
       container_name: remote_host
       image: remote-host
       build:
         context: centos # folder where i wrote the Dockerfile
+      networks:
+        - net
+    database_host:
+      container_name: database_host
+      image: mysql:5.7
+      environment: 
+        - "MYSQL_ROOT_PASSWORD=admin"
+      volumes:
+        - "$PWD/mysql_data:/var/lib/mysql" 
       networks:
         - net
 networks:
