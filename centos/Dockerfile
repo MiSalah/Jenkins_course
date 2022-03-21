@@ -19,8 +19,8 @@ RUN yum -y install mysql
 RUN yum -y install unzip
 
 # switch to python3.6
-RUN sudo yum -y install centos-release-scl && \
-    sudo yum -y install rh-python36 && \
+RUN yum -y install centos-release-scl && \
+    yum -y install rh-python36 && \
     scl enable rh-python36 bash
 
 # aws client
