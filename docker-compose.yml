@@ -20,7 +20,7 @@ services:
       environment: 
         - "MYSQL_ROOT_PASSWORD=admin"
       volumes:
-        - "$PWD/mysql_data:/var/lib/mysql" 
+        - "$PWD/mysql_data:/var/lib/mysql" #test
       networks:
         - net
 networks:
