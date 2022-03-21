@@ -15,6 +15,9 @@ COPY remote-key.pub /home/elbaidoury_remote/.ssh/authorized_keys
 # install the mysql client
 RUN yum -y install mysql 
 
+# Install unzip 
+RUN yum -y install unzip
+
 # aws client
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
