@@ -2,8 +2,8 @@ FROM jenkins/jenkins:lts
 
 USER root
 
-RUN curl "https://bootstrap.pypa.io/get-pip.py" && \
-    python get-pip.py && \
+RUN apt -y update && \
+    apt install -y python3-pip && \
     pip install ansible --upgrade
 
 USER jenkins   
